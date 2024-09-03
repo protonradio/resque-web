@@ -17,8 +17,10 @@ module ResqueWeb
       t
     end
 
-    def tab(name,path)
-      content_tag :li, link_to(name.capitalize, path), :class => current_tab?(name) ? "active" : nil
+    def tab(name, path)
+      link_class = current_tab?(name) ? "nav-link active" : "nav-link"
+
+      content_tag :li, link_to(name.capitalize, path, class: link_class), class: "nav-tab"
     end
 
     def current_tab
